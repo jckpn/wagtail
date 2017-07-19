@@ -424,17 +424,31 @@ footer,
             display: block;
         }
 
+        @keyframes glow {
+            from {
+                -webkit-filter: drop-shadow(0 0 0 #ddd);
+                filter: drop-shadow(0 0 0 #ddd);
+            }
+
+            to {
+                -webkit-filter: drop-shadow(0 0 4px #ddd);
+                filter: drop-shadow(0 0 4px #ddd);
+            }
+        }
+
         img.wagtail-logo {
             transition: all 0.25s cubic-bezier(0.28, 0.15, 0, 2.1);
         }
 
         img.wagtail-logo:hover {
             transform: rotate(4deg);
+            animation: glow 1s forwards;
+            -webkit-animation: glow 1s forwards;
         }
     }
 
     footer {
-        width: calc(100% - #{$menu-width} - 100px); // [full width] - [width of nav menu] - [2 * width of margin]
+        width: 80%;
         margin-left: 50px;
     }
 
@@ -458,6 +472,11 @@ footer,
                 }
             }
         }
+    }
+
+    footer {
+        width: 80%;
+        margin-left: 50px;
     }
 
 
